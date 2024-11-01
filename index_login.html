@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login do Portal</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login do Portal</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          opacity: 0; /* Começa invisível */
+          animation: fadeIn 1s forwards; /* Animação de desvanecimento */
+        }
+        
+        h2 {
+          color: #333;
+          align-items: start;
+          justify-content: start;
+        }
+      
+        form {
+          background: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          width: 300px;
+          transform: translateY(-20px); /* Começa levemente acima */
+          opacity: 0; /* Começa invisível */
+          animation: slideIn 0.5s forwards 0.5s; /* Animação de deslizamento */
+        }
+      
+        @keyframes fadeIn {
+          to {
+            opacity: 1; /* Opacidade total */
+          }
+        }
+      
+        @keyframes slideIn {
+          to {
+            transform: translateY(0); /* Desloca para a posição original */
+            opacity: 1; /* Opacidade total */
+          }
+        }
+      
+        input[type="email"],
+        input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          box-sizing: border-box;
+          transition: border-color 0.3s; /* Transição suave na borda */
+        }
+      
+        input:focus {
+          border-color: #007bff; /* Borda azul ao focar */
+        }
+      
+        button {
+          background-color: #007bff;
+          color: white;
+          padding: 10px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          width: 100%;
+          transition: background-color 0.3s; /* Transição suave na cor de fundo */
+        }
+      
+        button:hover {
+          background-color: #0056b3;
+        }
+      
+        #message {
+          color: red;
+          margin-top: 10px;
+          opacity: 0; /* Começa invisível */
+          animation: fadeIn 0.5s forwards; /* Animação de desvanecimento */
+        }
+      </style>
+      
+  </head>
+  
+</head>
+<body>
+  <h2>Login do Portal</h2>
+  <form id="loginForm">
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" placeholder="seuemail@gmail.com" required>
+    <br><br>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    // Validação simples de e-mail Gmail para simulação
+    const loginForm = document.getElementById("loginForm");
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      // Checa se o e-mail é do Gmail
+      if (email.endsWith("@gmail.com")) {
+        // Simulação de verificação de credenciais
+        if (email === "usuario@gmail.com" && password === "senha123") {
+          //message.textContent = "Login bem-sucedido! Redirecionando para o portal...";
+          // Aqui você pode redirecionar o usuário
+          setTimeout(() => {
+            window.location.href = "portal_conteudo.html";
+          }, 2000);
+        } else {
+          message.textContent = "E-mail ou senha incorretos.";
+        }
+      } else {
+        message.textContent = "Por favor, use um e-mail do Gmail.";
+      }
+    });
+  </script>
+</body>
+</html>
